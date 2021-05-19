@@ -1,27 +1,42 @@
-import { useGet, useUtils } from "@reactivers/hooks";
-import { useEffect } from "react";
+import { AuthProvider, FetchProvider, LocalStorageProvider, useGet, useUtils } from "@reactivers/hooks";
+import { useCallback, useEffect } from "react";
 
 
 const UseFetchExample = () => {
     const { response, request, fetched, fetching } = useGet();
     const { takeIf } = useUtils()
 
-    useEffect(() => {
-        request({
-            endpoint: `/companies/1ea24ef3-7a9c-4d6d-99ea-1c12b1389ccd`
+    const callRequest = useCallback(async () => {
+        const a = request({
+            endpoint: '/todos'
         })
-    }, [request])
+        console.log('a', a)
+    }, [])
 
-    console.log("fetching", fetching);
-    console.log("fetched", fetched);
+    useEffect(() => {
+        callRequest()
+    }, [callRequest])
 
     return (
         <div>
             <p>fetchinhg: {takeIf(fetching, 'true', 'false')}</p>
             <p>fetched: {takeIf(fetched, 'true', 'false')}</p>
-            <p style={{ whiteSpace: 'pre-line' }}>response: {JSON.stringify(response, null, 2)}</p>
+            <p style={{ whiteSpace: 'pre-wrap' }}>response: {JSON.stringify(response, null, 2)}</p>
         </div>
     )
 }
 
-export default UseFetchExample;
+const AppWrapper = () => {
+    return (
+        <LocalStorageProvider>
+            <AuthProvider>
+                <FetchProvider url="https://jsonplaceholder.typicode.com">
+                    <UseFetchExample />
+                </FetchProvider>
+            </AuthProvider>
+        </LocalStorageProvider>
+    )
+}
+
+
+export default AppWrapper;

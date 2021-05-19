@@ -73,7 +73,7 @@ const SignInPage = () => {
     const signIn = useCallback(() => {
         request({
             endpoint: `/users/signin`,
-            params: info,
+            body: info,
             onSuccess: (response) => {
                 login(response.data)
             }
@@ -98,7 +98,7 @@ const AppWrapper = () => {
     return (
         <LocalStorageProvider>
             <AuthProvider>
-                <FetchProvider url="http://your.restserver.url">
+                <FetchProvider url="/api">
                     <UseFetchAuthSignInExample />
                 </FetchProvider>
             </AuthProvider>

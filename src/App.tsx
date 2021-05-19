@@ -14,27 +14,16 @@ import UseThemeExample from './Examples/useTheme';
 import UseTitleExample from './Examples/useTitle';
 import UseUtilsExample from './Examples/useUtils';
 import UseLoadingExample from './Examples/useLoading';
+import UsePreviousExample from './Examples/usePrevious';
+import UseClickInsideExample from './Examples/useClickInside';
+import UseClickOutsideExample from './Examples/useClickOutside';
+import UseFetchExample from './Examples/useFetch';
 
 
 const App = () => {
   return (
     <>
-      <UseFetchSignInExample />
-      <UseCookieExample />
-      <UseCounterExample />
-      <UseDimensionsExample />
-      <UseEventListerExample />
-      <UseGlobalStateExample />
-      <UseHoverExample />
-      <UseLocaleExample />
-      <UseLocalStorageExample />
-      <UseMeasureExample />
-      <UseSafeAreaExample />
-      <UseSocketExample />
-      <UseThemeExample />
-      <UseTitleExample />
-      <UseUtilsExample />
-      <UseLoadingExample />
+      <UseFetchExample />
     </>
   )
 }

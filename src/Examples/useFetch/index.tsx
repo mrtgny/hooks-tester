@@ -7,21 +7,32 @@ const UseFetchExample = () => {
     const { takeIf } = useUtils()
 
     const callRequest = useCallback(async () => {
-        const a = request({
-            endpoint: '/todos'
+        request({
+            endpoint: '/todos/1'
         })
-        console.log('a', a)
-    }, [])
+    }, [request])
 
     useEffect(() => {
         callRequest()
     }, [callRequest])
 
     return (
-        <div>
-            <p>fetchinhg: {takeIf(fetching, 'true', 'false')}</p>
-            <p>fetched: {takeIf(fetched, 'true', 'false')}</p>
-            <p style={{ whiteSpace: 'pre-wrap' }}>response: {JSON.stringify(response, null, 2)}</p>
+        <div className="sample-page center">
+            <div className="card">
+                <div className="row">
+                    <p className="label-bg">fetchinhg:</p>
+                    <p className="label-dsc-flash">{takeIf(fetching, 'true', 'false')}</p>
+                </div>
+                <div className="row">
+                    <p className="label-bg">fetched:</p>
+                    <p className="label-dsc-flash">{takeIf(fetched, 'true', 'false')}</p>
+                </div>
+                <div className="row">
+                    <p className="label-bg">response:</p>
+                    <p className="label-dsc-flash">{JSON.stringify(response, null, 2)}</p>
+                </div>
+                <button onClick={callRequest}>Fetch</button>
+            </div>
         </div>
     )
 }

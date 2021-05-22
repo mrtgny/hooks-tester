@@ -14,17 +14,15 @@ const UseHoverExample = () => {
         includeBorders: true
     });
 
-    const center = { display: 'flex', justifyContent: 'center', alignItems: 'center' };
-
     return (
-        <div style={{ width: '100vw', height: '100vh', ...center }}>
-            <div style={{ padding: 50, backgroundColor: 'red' }}>
+        <div className="sample-page center">
+            <div className="card" style={{ padding: 50, backgroundColor: 'purple' }}>
                 <div ref={ref} style={{
                     width: 300,
                     height: 300,
-                    backgroundColor: isHover ? "green" : 'blue',
-                    ...center
-                }}>
+                    color: 'white',
+                    backgroundColor: isHover ? "green" : 'cadetblue',
+                }} className="center">
                     <p>
                         isHover {takeIf(isHover, 'True', "False")}
                     </p>

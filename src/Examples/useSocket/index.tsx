@@ -51,15 +51,29 @@ const UseSocketExample = () => {
     }
 
     return (
-        <div style={containerStyle}>
-            <div>
+        <div className="sample-page center">
+            <div className="card">
                 <p>Status: {readyState}</p>
-                {messageQueue.map(({ from, value }, index) => {
-                    return (
-                        <p key={index} style={{ marginLeft: from === 2 ? 64 : 0 }}>{value}</p>
-                    )
-                })}
-                <input type="text" onChange={e => setValue(e.target.value)} value={value} />
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    {messageQueue.map(({ from, value }, index) => {
+                        return (
+                            <div style={{
+                                display: 'flex',
+                                justifyContent: from === 2 ? 'flex-end' : 'flex-start',
+
+                            }}>
+                                <p style={{
+                                    backgroundColor: from === 2 ? 'purple' : 'orange',
+                                    color: 'white',
+                                    borderRadius: 10,
+                                    padding: "8px 16px",
+                                    margin: 0
+                                }} key={index} >{value}</p>
+                            </div>
+                        )
+                    })}
+                </div>
+                <input type="text" onChange={e => e.target.value && setValue(e.target.value)} value={value} />
                 <button onClick={onSend}>Send</button>
             </div>
         </div>

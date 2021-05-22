@@ -18,12 +18,14 @@ const UseCookieExample = () => {
     }
 
     return (
-        <div>
-            <p style={{ whiteSpace: 'pre-wrap' }}>all: {JSON.stringify(cookie, null, 2)}</p>
-            <p style={{ whiteSpace: 'pre-wrap' }}>Value: {JSON.stringify(item, null, 2)}</p>
-            <input type="text" onChange={e => setValue(e.target.value)} />
-            <button onClick={onSet}>Set</button>
-            <button onClick={onRemove}>Remove</button>
+        <div className="sample-page center">
+            <div className="card">
+                <p >all: {JSON.stringify(cookie, null, 2)}</p>
+                <p >Value: {JSON.stringify(item, null, 2)}</p>
+                <input type="text" onChange={e => setValue(e.target.value)} />
+                <button onClick={onSet}>Set</button>
+                <button onClick={onRemove}>Remove</button>
+            </div>
         </div>
     )
 }

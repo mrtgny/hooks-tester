@@ -17,10 +17,12 @@ const UseLoadingExample = () => {
         })
     }, [request])
     return (
-        <div>
-            <p style={{ whiteSpace: 'pre-wrap' }}>
-                {JSON.stringify(response, null, 2)}
-            </p>
+        <div className="sample-page center">
+            <div className="card">
+                <p >
+                    {JSON.stringify(response, null, 2)}
+                </p>
+            </div>
         </div>
     )
 }

@@ -7,18 +7,10 @@ interface IEvents {
     counter: number;
 }
 
-const wrapperStyle = {
-    width: '100vw',
-    height: '100vh',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-}
-
 const UseEventListerExample = () => {
     return (
-        <div style={wrapperStyle}>
-            <div>
+        <div className="sample-page center">
+            <div className="card">
                 <Comp1 />
                 <Comp2 />
             </div>

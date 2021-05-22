@@ -5,10 +5,12 @@ const UseTitleExample = () => {
     const [show, setShow] = useState(false);
 
     return (
-        <div>
-            <button onClick={() => setShow(old => !old)}>Switcher</button>
-            {show ? <TitleSetter /> : null}
-            Page Title is UseTitleExample
+        <div className="sample-page center">
+            <div className="card">
+                <p>Page Title is UseTitleExample</p>
+                <button onClick={() => setShow(old => !old)}>Switcher</button>
+                {show ? <TitleSetter /> : null}
+            </div>
         </div>
     )
 }

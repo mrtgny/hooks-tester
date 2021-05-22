@@ -5,27 +5,19 @@ const UseMeasureExample = () => {
     const ref = useRef(null);
     const measure = useMeasure({
         ref,
+        updateOnWindowResize: true
     })
-    const center = {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-    }
     return (
-        <div style={{
-            ...center,
-            width: '100vw',
-            height: '100vh'
-        }}>
-            <div ref={ref} style={{
+        <div className="sample-page center">
+            <div className="card center" ref={ref} style={{
                 width: '33%',
                 height: '33vh',
-                backgroundColor: 'green',
-                whiteSpace: 'pre-wrap',
+                backgroundColor: 'purple',
                 color: 'white',
-                ...center
             }}>
-                {JSON.stringify(measure, null, 2)}
+                <p>
+                    {JSON.stringify(measure, null, 2)}
+                </p>
             </div>
         </div>
     )

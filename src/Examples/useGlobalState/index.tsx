@@ -2,9 +2,12 @@ import { GlobalStateProvider, useGlobalState } from '@reactivers/hooks'
 
 const UseGlobalStateExample = () => {
     return (
-        <div>
-            <Comp1 />
-            <Comp2 />
+        <div className="sample-page center">
+            <div className="card">
+                <h1>Global State Example</h1>
+                <Comp1 />
+                <Comp2 />
+            </div>
         </div>
     )
 }
@@ -13,7 +16,7 @@ const Comp1 = () => {
     const { globalState } = useGlobalState();
     return (
         <div>
-            {globalState.counter || 0}
+            <p>Counter: {globalState.counter || 0}</p>
         </div>
     )
 }

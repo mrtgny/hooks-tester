@@ -3,18 +3,12 @@ import { useCounter } from "@reactivers/hooks"
 const UseCounterExample = () => {
     const { counter, increase, decrease, setCounter, reset } = useCounter();
     return (
-        <div>
-            <p>Counter: {counter}</p>
-            <div>
+        <div className="sample-page center">
+            <div className="card">
+                <p>Counter: {counter}</p>
                 <button onClick={() => increase()}>Increase</button>
-            </div>
-            <div>
                 <button onClick={() => decrease()}>Decrease</button>
-            </div>
-            <div>
                 <button onClick={() => setCounter(5)}>Set to 5</button>
-            </div>
-            <div>
                 <button onClick={() => reset()}>Reset</button>
             </div>
         </div>

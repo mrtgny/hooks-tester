@@ -16,30 +16,32 @@ const UseDimensionsExample = () => {
     const { takeIf } = useUtils()
 
     return (
-        <div style={{
-            width: '100vw',
-            height: '100vh',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center'
-        }}>
-            <div>
-                <p>Size:{size}</p>
-                <p>isSizeEqualOrLargerThan:
-					{takeIf(isSizeEqualOrLargerThan("md"), "True", "False")}
-                </p>
-                <p>isSizeLargerThan:
-					{takeIf(isSizeLargerThan("md"), "True", "False")}
-                </p>
-                <p>isSizeEqualTo:
-					{takeIf(isSizeEqualTo("md"), "True", "False")}
-                </p>
-                <p>isSizeSmallerThan:
-					{takeIf(isSizeSmallerThan("md"), "True", "False")}
-                </p>
-                <p>isSizeEqualOrSmallerThan:
-					{takeIf(isSizeEqualOrSmallerThan("md"), "True", "False")}
-                </p>
+        <div className="sample-page center">
+            <div className="card" key={size}>
+                <div className="flex">
+                    <p className="label-bg">Size:</p>
+                    <p className="label-dsc-flash">{size}</p>
+                </div>
+                <div>
+                    <p className="label-bg">isSizeEqualOrLargerThan MD:</p>
+                    <p className="label-dsc-flash">{takeIf(isSizeEqualOrLargerThan("md"), "True", "False")}</p>
+                </div>
+                <div>
+                    <p className="label-bg">isSizeLargerThan MD:</p>
+                    <p className="label-dsc-flash">{takeIf(isSizeLargerThan("md"), "True", "False")}</p>
+                </div>
+                <div>
+                    <p className="label-bg">isSizeEqualTo MD:</p>
+                    <p className="label-dsc-flash">{takeIf(isSizeEqualTo("md"), "True", "False")}</p>
+                </div>
+                <div>
+                    <p className="label-bg">isSizeSmallerThan MD:</p>
+                    <p className="label-dsc-flash">{takeIf(isSizeSmallerThan("md"), "True", "False")}</p>
+                </div>
+                <div>
+                    <p className="label-bg">isSizeEqualOrSmallerThan MD:</p>
+                    <p className="label-dsc-flash">{takeIf(isSizeEqualOrSmallerThan("md"), "True", "False")}</p>
+                </div>
             </div>
         </div>
     )

@@ -5,8 +5,7 @@ import {
     AuthProvider,
     FetchProvider,
     LocalStorageProvider
-}
-    from "@reactivers/hooks";
+} from "@reactivers/hooks";
 import { useCallback, useEffect, useState } from "react";
 
 const UseFetchAuthSignInExample = () => {
@@ -20,10 +19,10 @@ const UseFetchAuthSignInExample = () => {
             } else {
                 //get user info
                 request({
-                    endpoint: '/users/getUserInfo',
+                    endpoint: '/users/current',
                     onSuccess: (response) => {
-                        delete response.data.token;
-                        login(response.data);
+                        delete response.result.token;
+                        login(response.result);
                     }
                 })
             }
@@ -72,23 +71,25 @@ const SignInPage = () => {
 
     const signIn = useCallback(() => {
         request({
-            endpoint: `/users/signin`,
+            endpoint: `/users/sign-in`,
             body: info,
             onSuccess: (response) => {
-                login(response.data)
+                login(response.result)
             }
         })
     }, [request, info, login])
 
     return (
-        <div>
-            <input type="text" onChange={e => {
-                setInfo(old => ({ ...old, username: e.target.value }))
-            }} />
-            <input type="text" onChange={e => {
-                setInfo(old => ({ ...old, password: e.target.value }))
-            }} />
-            <button onClick={signIn}>Sign in</button>
+        <div className="sample-page">
+            <div className="card">
+                <input type="text" placeholder="Any username" onChange={e => {
+                    setInfo(old => ({ ...old, username: e.target.value }))
+                }} />
+                <input type="password" placeholder="Any password" onChange={e => {
+                    setInfo(old => ({ ...old, password: e.target.value }))
+                }} />
+                <button onClick={signIn}>Sign in</button>
+            </div>
         </div>
     )
 }
@@ -98,7 +99,7 @@ const AppWrapper = () => {
     return (
         <LocalStorageProvider>
             <AuthProvider>
-                <FetchProvider url="/api">
+                <FetchProvider url="http://yd37o.mocklab.io/api">
                     <UseFetchAuthSignInExample />
                 </FetchProvider>
             </AuthProvider>

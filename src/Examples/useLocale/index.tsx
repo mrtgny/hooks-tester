@@ -31,11 +31,13 @@ const UseLocaleExample = () => {
     const { locale, setActiveLanguage } = useLocale();
     console.log("locale", locale)
     return (
-        <div>
-            <p>Back: {locale.back("Test")}</p>
-            <p>Next: {locale.next("Test 2")}</p>
-            <button onClick={() => setActiveLanguage("tr")}>TR</button>
-            <button onClick={() => setActiveLanguage("en-us")}>EN</button>
+        <div className="sample-page center">
+            <div className="card">
+                <p>Back: {locale.back("Test")}</p>
+                <p>Next: {locale.next("Test 2")}</p>
+                <button onClick={() => setActiveLanguage("tr")}>TR</button>
+                <button onClick={() => setActiveLanguage("en-us")}>EN</button>
+            </div>
         </div>
     )
 }

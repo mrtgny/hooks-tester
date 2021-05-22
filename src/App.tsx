@@ -18,15 +18,15 @@ import UsePreviousExample from './Examples/usePrevious';
 import UseClickInsideExample from './Examples/useClickInside';
 import UseClickOutsideExample from './Examples/useClickOutside';
 import UseFetchExample from './Examples/useFetch';
-
+import "./App.css"
+import UseMountedExample from './Examples/useMounted';
 
 const App = () => {
   return (
     <>
-      <UseFetchExample />
+      <UseSocketExample />
     </>
   )
-}
-
+};
 
 export default App;

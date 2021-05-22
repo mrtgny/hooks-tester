@@ -17,26 +17,28 @@ const UseClickInsideExample = () => {
     const clicked = useClickInside({ ref, callback })
 
     return (
-        <div style={{ width: '100vw', height: '100vh', ...center }}>
-            <div style={center} ref={ref}>
-                <div style={{
-                    ...center,
-                    width: 100,
-                    height: 100,
-                    backgroundColor: 'blue',
-                    color: 'white'
-                }}>
-                    Click me
-            </div>
-                <div style={{
-                    ...center,
-                    width: 100,
-                    height: 100,
-                    backgroundColor: 'blue',
-                    color: 'white'
-                }}>
-                    Or me
-            </div>
+        <div className="sample-page">
+            <div className="card">
+                <div style={center} ref={ref}>
+                    <div style={{
+                        ...center,
+                        width: 100,
+                        height: 100,
+                        backgroundColor: 'blue',
+                        color: 'white'
+                    }}>
+                        Click me
+                    </div>
+                    <div style={{
+                        ...center,
+                        width: 100,
+                        height: 100,
+                        backgroundColor: 'blue',
+                        color: 'white'
+                    }}>
+                        Or me
+                    </div>
+                </div>
             </div>
         </div>
     )

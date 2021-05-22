@@ -10,7 +10,7 @@ const UseUtilsExample = () => {
     });
     const [styleWidth, setStyleWidth] = useState('0vw')
 
-    const progress = transform(width, [0, window.innerWidth], [0, 100])
+    const progress = transform(width * 1.0, [0.0, window.innerWidth * 1.0], [0.0, 100.0])
 
     useEffect(() => {
         if (progress === 100) {
@@ -20,26 +20,17 @@ const UseUtilsExample = () => {
         }
     }, [progress])
 
-    const center = {
-        display: 'flex',
-        alignItems: 'center'
-    }
-
     return (
-        <div style={{
-            width: '100vw',
-            height: '100vh',
-            ...center
-        }}>
-            <div ref={ref} style={{
+        <div className="sample-page center" style={{ justifyContent: 'flex-start' }}>
+            <div ref={ref} className="center" style={{
                 height: 80,
                 width: styleWidth,
                 transition: '2s',
                 transitionDelay: '0.4s',
                 backgroundColor: 'blue',
-                ...center
+                justifyContent: 'flex-start'
             }}>
-                <p>
+                <p style={{ whiteSpace: 'nowrap' }}>
                     {progress.toFixed(2)}
                 </p>
             </div>

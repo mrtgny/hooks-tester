@@ -1,35 +1,31 @@
-import { useCallback, useRef } from "react"
-import { useClickOutside } from "@reactivers/hooks"
-
-const center = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-}
+import { useCallback, useRef } from "react";
+import { useClickOutside } from "@reactivers/hooks";
 
 const UseClickOutsideExample = () => {
-    const ref = useRef(null);
+  const ref = useRef(null);
 
-    const callback = useCallback((e) => {
-        console.log('clicked outside element', e.target)
-    }, [])
+  const callback = useCallback((e) => {
+    alert("clicked outside element");
+  }, []);
 
-    const clicked = useClickOutside({ ref, callback })
+  const clicked = useClickOutside({ ref, withState: true, callback });
 
-    return (
-        <div style={{ width: '100vw', height: '100vh', backgroundColor: 'blue', ...center }}>
-
-            <div style={{
-                ...center,
-                width: 100,
-                height: 100,
-                backgroundColor: 'green',
-                color: 'white'
-            }} ref={ref}>
-                Click on blue
-            </div>
+  return (
+    <div className="sample-page">
+      <div className="card">
+        <div
+          className="center box"
+          style={{
+            backgroundColor: clicked ? "green" : "#aaa",
+            color: "white"
+          }}
+          ref={ref}
+        >
+          Click on blue
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
 export default UseClickOutsideExample;
